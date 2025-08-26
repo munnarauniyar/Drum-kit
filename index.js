@@ -8,6 +8,7 @@ function onClick()
 {
     var buttonplay=this.innerHTML;
    makesound(buttonplay);
+   animation(buttonplay);
 
 }
 }
@@ -15,6 +16,7 @@ function onClick()
 document.addEventListener("keypress", function(event)
 {
     makesound(event.key);
+    animation(event.key);
 });
 
 
@@ -61,4 +63,16 @@ function makesound(key)
     default:
 
     } 
+}
+
+function animation(key)
+{
+    var activebtn = document.querySelector("."+key);
+    activebtn.classList.add("pressed");
+
+    setTimeout(function()
+{
+    activebtn.classList.remove("pressed", 100);
+});
+
 }
